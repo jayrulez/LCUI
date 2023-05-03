@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 	pd_canvas_init(&canvas);
 	canvas.color_type = PD_COLOR_TYPE_ARGB;
 	pd_canvas_create(&canvas, 256, 256);
-	pd_canvas_fill(&canvas, RGB(255, 255, 255));
+	pd_canvas_fill(&canvas, pd_rgb(255, 255, 255));
 
 	// Create a surface based on the canvas so that cairo can also modify
 	// the pixel data in the canvas
@@ -58,10 +58,10 @@ int main(int argc, char** argv)
 	draw_cairo_text(surface);
 
 	// Fill the four rectangles
-	pd_canvas_fill_rect(&canvas, RGB(255, 0, 0), pd_rect(20, 20, 40, 40));
-	pd_canvas_fill_rect(&canvas, RGB(0, 255, 0), pd_rect(196, 20, 40, 40));
-	pd_canvas_fill_rect(&canvas, RGB(0, 0, 255), pd_rect(20, 196, 40, 40));
-	pd_canvas_fill_rect(&canvas, RGB(100, 100, 100),
+	pd_canvas_fill_rect(&canvas, pd_rgb(255, 0, 0), pd_rect(20, 20, 40, 40));
+	pd_canvas_fill_rect(&canvas, pd_rgb(0, 255, 0), pd_rect(196, 20, 40, 40));
+	pd_canvas_fill_rect(&canvas, pd_rgb(0, 0, 255), pd_rect(20, 196, 40, 40));
+	pd_canvas_fill_rect(&canvas, pd_rgb(100, 100, 100),
 			    pd_rect(196, 196, 40, 40));
 
 	cairo_surface_write_to_png(surface, "output.png");
